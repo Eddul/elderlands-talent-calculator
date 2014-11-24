@@ -1,0 +1,236 @@
+body {
+    background-color: #030303;
+    background-image: url(../images/background.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+#container {
+    background-image: url(../images/bg_scroll.png);
+    background-repeat: repeat-y;
+    position: absolute;
+    width: 1000px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#wrapper {
+    position: relative;
+    width: 746px;
+    height: 553px;
+    margin: auto;
+}
+#header {
+    background-image: url(../images/header.png);
+    background-repeat: no-repeat;
+    position: relative;
+    height: 370px;
+    cursor: pointer;
+}
+#footer {
+    background-image: url(../images/footer.png);
+    height: 158px;
+}
+
+/* --- menu --- */
+#class-menu {
+    position: relative;
+    width: 746;
+    height: 81px;
+}
+.clazz {
+    background-image: url(../images/classes.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 240px;
+    height: 68px;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-left: 12px;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    z-index: 2;
+}
+.clazz:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+#highlight {
+    background-image: url(../images/highlight.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 264px;
+    height: 81px;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+/* --- calculator --- */
+#calculator {
+    background-image: url(../images/calc-border.png);
+    position: relative;
+    width: 746px;
+    height: 472px;
+    margin: auto;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+.tree {
+    background: url(../images/tree-background.png);
+    position: absolute;
+    width: 240px;
+    height: 400px;
+    top: 7px;
+    left: 12px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+.tree-title {
+    background-image: url(../images/tree-names.png);
+    width: 230px;
+    height: 25px;
+    position: absolute;
+    top: 12px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+.talent {
+    background: url(../images/talents.png);
+    width: 31;
+    height: 31;
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid #262626;
+    z-index: 2;
+}
+.talent:hover {
+    -webkit-box-shadow: 0 0 10px 3px rgba(3, 130, 52, 1);
+    box-shadow: 0 0 10px 3px rgba(3, 130, 52, 1);
+}
+.arrow {
+    width: 11px;
+    position: absolute;
+    background-image: url(../images/arrow.png);
+    z-index: 1;
+}
+.counter {
+    color: #00E20B;
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    background: #000000;
+    border: 1px solid #262626;
+    border-radius: 5px;
+    z-index: 3;
+}
+.unavailable {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+.available {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+.active,
+.full {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+#reset-button {
+    background-image: url(../images/reset-button.png);
+    background-position: 0px 0px;
+    position: absolute;
+    width: 104px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 50;
+    top: 423;
+    left: 320;
+}
+#reset-button:hover {
+    background-position: 0px -25px;
+}
+#points {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    z-index: 50;
+    top: 428px;
+    left: 265;
+    font-size: 14px;
+    color: white;
+    text-align: right;
+}
+
+/* --- tooltip --- */
+#tooltip {
+    background: rgba(12, 12, 12, .8);
+    position: fixed;
+    display: none;
+    border-style: solid;
+    border-width: 14px;
+    -webkit-border-image: url(../images/tooltip-border.png) 14 14 14 14 repeat;
+    border-image: url(../images/tooltip-border.png) 14 14 14 14 repeat;
+    z-index: 99;
+}
+.tooltip-top {
+    font-size: 14px;
+}
+.tooltip-type {
+    display: inline-block;
+    margin-right: 5px;
+}
+.tooltip-type.passive {
+    color: #00FF80;
+}
+.tooltip-type.spell {
+    color: #FF8000;
+}
+.tooltip-name {
+    display: inline-block;
+    color: #AFD8FF;
+}
+.tooltip-divider {
+    height: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /*background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, from(rgba(0, 97, 209, 1)), to(rgba(0, 0, 0, 0)));*/
+    background: -webkit-gradient(radial, center center, 0, center center, 100, from(rgba(0, 97, 209, 1)), to(rgba(0, 0, 0, 0)));
+    background: -webkit-radial-gradient(circle, from(rgba(0, 97, 209, 1)), to(rgba(0, 0, 0, 0)));
+    /* Probably not working */
+    background: -moz-radial-gradient(circle, from(rgba(0, 97, 209, 1)), to(rgba(0, 0, 0, 0)));
+    background: -ms-radial-gradient(circle, from(rgba(0, 97, 209, 1)), to(rgba(0, 0, 0, 0)));
+}
+.tooltip-bottom {
+    width: 200px;
+    word-wrap: break-word;
+}
+.tooltip-next {
+    color: #D4B654;
+    margin-top: 10px;
+}
+.tooltip-rank {
+    color: #D4B654;
+    margin-bottom: 5px;
+}
+.tooltip-status {
+    color: #D4B654;
+    margin-top: 5px;
+}
+.tooltip-status.missing {
+    color: #e2000b;
+}
+.tooltip-desc,
+.tooltip-next-desc {
+    color: #00E20B;
+    margin-bottom: 10px;
+}
