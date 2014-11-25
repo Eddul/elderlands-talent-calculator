@@ -1,1 +1,6 @@
-.DS_STORE
+# OS Generated Files
+# OS X
+.DS_Store
+
+# Windows
+Thumbs.db
