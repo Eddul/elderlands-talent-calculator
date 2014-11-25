@@ -405,9 +405,6 @@ var Calculator = (function () {
         }
     };
 
-    var pointsRequired = function (talent) {
-        return Math.floor((talent.index - 1) / ITEMS_PER_ROW) * 5;
-    };
 
     var setState = function (tree, index, rank, modifier) {
         var talent = _talents[tree][index];
@@ -437,9 +434,11 @@ var Calculator = (function () {
                     if (getParentIndex(tree, _talents[tree][i].parent) === index)
                         return;
                 }
+
                 // higher tier talent has enough points
-                if (!hasEnoughPoints(tree, i, index))
+                if (getTalentTier(tree, i) > getTalentTier(tree, index) && !hasEnoughPoints(tree, i))
                     return;
+
             }
         }
         // updating state
@@ -447,6 +446,10 @@ var Calculator = (function () {
         _points += modifier;
         updateTalents();
         updateHash();
+    };
+
+    var pointsRequired = function (talent) {
+        return Math.floor((talent.index - 1) / ITEMS_PER_ROW) * 5;
     };
 
     var treePoints = function (tree) {
@@ -467,17 +470,16 @@ var Calculator = (function () {
         return Math.floor((_talents[tree][index].index - 1) / ITEMS_PER_ROW);
     };
 
-    var hasEnoughPoints = function (tree, i, index) {
+    var hasEnoughPoints = function(tree, index) {
         var points = 0;
-        if (getTalentTier(tree, i) > getTalentTier(tree, index)) {
-            for (var j in _state[tree]) {
-                if (j < i && getTalentTier(tree, i) > getTalentTier(tree, j))
-                    points += _state[tree][j];
+        for (var i in _state[tree]) {
+            if (getTalentTier(tree, i) < getTalentTier(tree, index)) {
+                points += _state[tree][i] || 0;
             }
         }
-
-        if (points !== 0 && points - 1 < pointsRequired(_talents[tree][i]))
+        if (_state[tree][index] > 0 && points - 1 < pointsRequired(_talents[tree][index])) {
             return false;
+        }
         return true;
     };
 
