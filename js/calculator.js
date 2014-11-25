@@ -70,7 +70,7 @@ var Calculator = (function () {
             ).append(
                 $("<div>")
                 .attr("id", "reset-button")
-                .mousedown(function () {
+                .mousedown(function (event) {
                     if (event.which === 1)
                         resetPoints();
                 })
@@ -94,7 +94,7 @@ var Calculator = (function () {
                 left: clazz * (TREE_OFFSET + 1),
                 backgroundPosition: pos,
             })
-            .mousedown(function () {
+            .mousedown(function (event) {
                 switch (event.which) {
                 case 1:
                     changeClass(clazz);
@@ -170,7 +170,7 @@ var Calculator = (function () {
                 .css({
                     left: talentPos.x + "px",
                     top: talentPos.y + "px",
-                    backgroundPosition: spritePos.x + " " + spritePos.y,
+                    backgroundPosition: spritePos.x + "px " + spritePos.y + "px",
                 })
                 .append(
                     $("<div>")
@@ -186,7 +186,7 @@ var Calculator = (function () {
                     $(this).data("hover", false);
                     $("#tooltip").hide();
                 })
-                .mousedown(function () {
+                .mousedown(function (event) {
                     switch (event.which) {
                     case 1:
                         // left click
@@ -291,11 +291,11 @@ var Calculator = (function () {
                 if (!e.pageX)
                     x += e.clientX;
                 else
-                    x += event.pageX - ($("body").scrollLeft() || $("documentElement").scrollLeft());
+                    x += e.pageX - ($("body").scrollLeft() || $("documentElement").scrollLeft());
 
                 // y-coordinate
                 if (e.pageY)
-                    y += event.pageY - ($("body").scrollTop() || $("documentElement").scrollTop());
+                    y += e.pageY - ($("body").scrollTop() || $("documentElement").scrollTop());
                 else
                     y += e.clientY
 
