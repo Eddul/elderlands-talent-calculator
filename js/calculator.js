@@ -79,7 +79,7 @@ var Calculator = (function () {
 
     // draw the class menu button
     var drawMenuButton = function (clazz) {
-        var pos = -clazz * TREE_OFFSET + "px 0px";
+        var pos = -clazz * TREE_OFFSET;
 
         if (clazz === _clazz) {
             $("#highlight").css({
@@ -91,8 +91,8 @@ var Calculator = (function () {
             $("<div>")
             .addClass("clazz")
             .css({
-                left: clazz * (TREE_OFFSET + 1),
-                backgroundPosition: pos,
+                left: clazz * (TREE_OFFSET + 1) + "px",
+                backgroundPosition: pos + "px 0px",
             })
             .mousedown(function (event) {
                 switch (event.which) {
@@ -111,7 +111,7 @@ var Calculator = (function () {
             $("<div>")
             .addClass("tree")
             .css({
-                left: left,
+                left: left + "px",
             })
         );
     };
@@ -125,8 +125,8 @@ var Calculator = (function () {
             $("<div>")
             .addClass("tree-title")
             .css({
-                left: left,
-                backgroundPosition: width + " " + height,
+                left: left + "px",
+                backgroundPosition: width + "px " + height + "px",
             })
         );
     };
@@ -151,10 +151,10 @@ var Calculator = (function () {
                     .addClass("arrow")
                     .addClass("unavailable")
                     .css({
-                        left: parentPos.x + (ICON_SIZE / 3),
-                        top: parentPos.y + ICON_SIZE,
-                        height: height,
-                        backgroundPosition: "0 " + (height - 300),
+                        left: parentPos.x + (ICON_SIZE / 3) + "px",
+                        top: parentPos.y + ICON_SIZE + "px",
+                        height: height + "px",
+                        backgroundPosition: "0px " + (height - 300) + "px",
                     })
             );
         }
@@ -215,7 +215,7 @@ var Calculator = (function () {
                             .removeClass(_states.join(" "))
                             .addClass(status)
                             .css({
-                                backgroundPosition: spritePos.x + " " + spritePos.y,
+                                backgroundPosition: spritePos.x + "px " + spritePos.y + "px",
                             });
                     }
 
@@ -300,8 +300,8 @@ var Calculator = (function () {
                     y += e.clientY
 
                 $tooltip.css({
-                    "top": y,
-                    "left": x,
+                    "top": y + "px",
+                    "left": x + "px",
                 });
             }
         });
