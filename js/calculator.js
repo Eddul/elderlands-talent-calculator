@@ -507,7 +507,7 @@ var Calculator = (function () {
         _spriteOffsets = [
             0,
             _talents[0].length,
-            _talents[0].length + _talents[0].length
+            _talents[0].length + _talents[1].length
         ];
     };
 
